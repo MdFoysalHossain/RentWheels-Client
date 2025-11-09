@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 
 const AddCar = () => {
@@ -101,7 +101,7 @@ const AddCar = () => {
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold">
-                                            Rent Price (Per Day)
+                                            Rent Price by ৳ (Per Day)
                                         </span>
                                     </label>
                                     <input

@@ -56,4 +56,11 @@
   border-radius: 4px;
   font-weight: 600;
   height: 38px;
+  transition: all 0.2s linear;
+}
+
+
+.button-two:hover{
+  background-color: rgb(250, 59, 59);
+  color: white !important;
 }
