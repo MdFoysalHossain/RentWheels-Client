@@ -33,6 +33,7 @@ const Login = () => {
 
     return (
         <div className='w-full flex justify-center items-center h-[80vh]'>
+            <title>Login to Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Welcome <span className='text-primary'>Back!</span></p>
                 <span className='text-lg mt-2'>Login to your Account</span>

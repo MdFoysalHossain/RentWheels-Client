@@ -77,6 +77,7 @@ const Register = () => {
 
     return (
         <div className='w-full flex justify-center items-center mt-10 h-[80vh]'>
+            <title>Register Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Hello <span className='text-primary'>There!</span></p>
                 <span className='text-lg mt-2'>Create An New Account</span>
