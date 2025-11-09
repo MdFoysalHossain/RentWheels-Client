@@ -28,7 +28,8 @@ const AddCar = () => {
             imageUrl: imageUrl,
             email: email,
             status: "Available",
-            name: name
+            name: name,
+            bookedBy: ""
         }
 
         fetch("http://localhost:3000/AddCar", {

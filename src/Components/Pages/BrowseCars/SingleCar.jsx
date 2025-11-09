@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { MapPin, CarFront, Wallet, BookmarkCheck, BookmarkX, IdCardLanyard, AtSign } from 'lucide-react';
+import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 
 const SingleCar = () => {
     const { id } = useParams();
+    const {userInfo} = use(AuthContext)
     let [data, setData] = useState()
     // console.log("Params", id)
 
@@ -19,9 +21,29 @@ const SingleCar = () => {
         return (() => getData())
     }, [id])
 
+
+    const updateData = () => {
+        console.log("Checking")
+
+
+        fetch(`http://localhost:3000/BrowseCars/${id}`, {
+            method: "PATCH",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({status: "Unavaliable", bookedBy: userInfo.email})
+        })
+        .then(res => res.json())
+        .then(resData => {
+            console.log("After Update", resData)
+            setData(prev => ({...prev, status: "Unavaliable"}))
+        })
+    }
+
     if (data) {
         return (
             <div>
+                {
+                    console.log(data)
+                }
                 <div className="mt-10">
                     <div className="flex gap-10 justify-center">
                         <div className=" w-[600px] text-left">
@@ -130,7 +152,7 @@ const SingleCar = () => {
                                 </div>
                             </div>
 
-                            <button className='btn button-one w-full mt-3'>Book Now</button>
+                            <button className='btn button-one w-full mt-3' onClick={updateData} disabled={data.status === "Available"? false: true}>{data.status === "Available"? "Book Now": "Already Booked"}</button>
                         </div>
                     </div>
                 </div>

@@ -42,7 +42,27 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    userInfo ? <button onClick={handleLogOut} className='button-two'>Logout</button> :
+                    userInfo ?
+                        // 
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt={userInfo.displayName}
+                                        src={userInfo.photoURL} />
+                                </div>
+                            </div>
+                            <ul
+                                tabIndex="-1"
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 min-w-50 p-2 ">
+                                <li className=''>
+                                    <p className='cursor-pointer bg-transparent hover:bg-transparent -mb-2 active:text-black'>Email</p>
+                                    <p className='cursor-pointer text-lg bg-transparent hover:bg-transparent active:text-black mb-3'>{userInfo.email}</p>
+                                </li>
+                                <li><button onClick={handleLogOut} className='button-two flex justify-center items-center'>Logout</button></li>
+                            </ul>
+                        </div>
+                        :
                         <Link className="btn button-one" to={"/Login"}>Login</Link>
                 }
             </div>
