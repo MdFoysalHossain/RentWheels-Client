@@ -36,7 +36,7 @@ const MyListings = () => {
                     </thead>
                     <tbody>
                         {
-                            listings.map((listing,  index) => <SingleListing index={index} listing={listing} key={index}/>)
+                            listings.map((listing,  index) => <SingleListing setListings={setListings} listings={listings} index={index} listing={listing} key={index}/>)
                         }
                     </tbody>
                 </table>
