@@ -10,6 +10,7 @@ import AddCar from "../Components/Pages/AddCar/AddCar";
 import BrowseCars from "../Components/Pages/BrowseCars/BrowseCars";
 import Error404 from "../Components/Public/Error404";
 import SingleCar from "../Components/Pages/BrowseCars/SingleCar";
+import MyListings from "../Components/Pages/MyListings/MyListings";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +42,9 @@ export const router = createBrowserRouter([
             }, {
                 path: "/BrowseCars/:id",
                 element: <PrivateRoute><SingleCar/></PrivateRoute>
+            }, {
+                path: "/MyListings",
+                element: <PrivateRoute><MyListings/></PrivateRoute>
             }
         ]
     },{
