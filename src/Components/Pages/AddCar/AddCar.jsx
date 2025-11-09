@@ -4,7 +4,7 @@ import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 const AddCar = () => {
 
 
-    const {userInfo} = use(AuthContext)
+    const { userInfo } = use(AuthContext)
 
 
 
@@ -27,14 +27,23 @@ const AddCar = () => {
             location: location,
             imageUrl: imageUrl,
             email: email,
+            status: "Available",
             name: name
         }
+
+        fetch("http://localhost:3000/AddCar", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => console.log("Post Was Created", data))
 
         console.log(data)
 
     };
 
-    
+
     return (
         <div>
             <div className="min-h-screen text-left flex items-center justify-center p-6">
@@ -44,7 +53,6 @@ const AddCar = () => {
                             Add <span className='text-primary'>Your</span> Car
                         </h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            {/* Car Name */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Car Name</span>
@@ -58,7 +66,6 @@ const AddCar = () => {
                                 />
                             </div>
 
-                            {/* Description */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Description</span>
@@ -72,9 +79,7 @@ const AddCar = () => {
                                 />
                             </div>
 
-                            {/* Category & Rent Price */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {/* Category */}
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold">Category</span>
@@ -85,15 +90,14 @@ const AddCar = () => {
                                         required
                                     >
                                         <option value="">Select Category</option>
-                                            <option key={"Sedan"} value={"Sedan"}>Sedan</option>
-                                            <option key={"SUV"} value={"SUV"}>SUV</option>
-                                            <option key={"Hatchback"} value={"Hatchback"}>Hatchback</option>
-                                            <option key={"Luxury"} value={"Luxury"}>Luxury</option>
-                                            <option key={"Electric"} value={"Electric"}>Electric</option>
+                                        <option key={"Sedan"} value={"Sedan"}>Sedan</option>
+                                        <option key={"SUV"} value={"SUV"}>SUV</option>
+                                        <option key={"Hatchback"} value={"Hatchback"}>Hatchback</option>
+                                        <option key={"Luxury"} value={"Luxury"}>Luxury</option>
+                                        <option key={"Electric"} value={"Electric"}>Electric</option>
                                     </select>
                                 </div>
 
-                                {/* Rent Price */}
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold">
@@ -110,7 +114,6 @@ const AddCar = () => {
                                 </div>
                             </div>
 
-                            {/* Location */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Location</span>
@@ -124,7 +127,6 @@ const AddCar = () => {
                                 />
                             </div>
 
-                            {/* Image URL */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">
@@ -140,7 +142,6 @@ const AddCar = () => {
                                 />
                             </div>
 
-                            {/* Provider Info */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="form-control">
                                     <label className="label">
@@ -171,7 +172,6 @@ const AddCar = () => {
                                 </div>
                             </div>
 
-                            {/* Submit Button */}
                             <div className="form-control mt-6">
                                 <button className="button-one text-white w-full">Add Car</button>
                             </div>
