@@ -1,0 +1,8 @@
+.slick-slide {
+  padding: 0 10px; /* add gap between slides */
+  box-sizing: border-box;
+}
+
+.slick-list {
+  margin: 0 -10px; /* prevent extra space on sides */
+}
