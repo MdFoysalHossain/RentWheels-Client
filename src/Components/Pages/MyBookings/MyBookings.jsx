@@ -2,7 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 
 import { Car } from 'lucide-react';
 import SingleBookings from './SingleBookings';
-import { Link, useParams } from 'react-router';
+import { Link, } from 'react-router';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { CircleChevronLeft } from 'lucide-react';
 
@@ -28,15 +28,17 @@ const MyBookings = () => {
 
     if (bookings.length === 0) {
         return (
-        <div className="h-[80vh] flex justify-center items-center flex-col gap-5">
-            <h2 className='text-4xl font-semibold capitalize text-left'>It seems you dont Have <br /> any Booked Any Cars</h2>
-            <span className='text-xl flex justify-center items-center gap-1'><CircleChevronLeft className='text-primary'/> Go to <Link to={"/BrowseCars"} className='underline text-primary'>Browse Cars</Link></span>
-        </div>
+            <div className="h-[80vh] flex justify-center items-center flex-col gap-5">
+                <title>My Bookings - RentWheels</title>
+                <h2 className='text-4xl font-semibold capitalize text-left'>It seems you dont Have <br /> any Booked Any Cars</h2>
+                <span className='text-xl flex justify-center items-center gap-1'><CircleChevronLeft className='text-primary' /> Go to <Link to={"/BrowseCars"} className='underline text-primary'>Browse Cars</Link></span>
+            </div>
         )
     }
 
     return (
         <div className=" mt-10">
+            <title>My Bookings - RentWheels</title>
             <h1 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>My Bookings <Car className='text-primary ' size={30} /></h1>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                 <table className="table">
