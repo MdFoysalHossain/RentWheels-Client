@@ -42,6 +42,7 @@ export const router = createBrowserRouter([
                 element: <BrowseCars />
             }, {
                 path: "/BrowseCars/:id",
+                loader: () => fetch(`http://localhost:3000/BrowseCars/`).then(res => res.json()),
                 element: <PrivateRoute><SingleCar /></PrivateRoute>
             }, {
                 path: "/MyListings",

@@ -1,10 +1,10 @@
-import React, { use, } from 'react';
+import React from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { useLoaderData, useParams } from 'react-router';
 import EditItem from './EditItem';
+import NotFoundListing from './NotFoundListing';
 
 const EditMyListing = () => {
-    const { userInfo } = use(AuthContext)
     const { id } = useParams()
     const loaderData = useLoaderData()
 
@@ -32,7 +32,7 @@ const EditMyListing = () => {
             )
             
         } else {
-            return <h1>404 Not FOund</h1>
+            return (<NotFoundListing/>)
         }
     } else {
         console.log("All Data exit")
