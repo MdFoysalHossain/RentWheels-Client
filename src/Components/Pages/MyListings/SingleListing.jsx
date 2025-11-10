@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2'
 
 const SingleListing = ({ listing, index, listings, setListings }) => {
@@ -45,7 +46,7 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
             <td>{listing.rentPrice}</td>
             <td>{listing.status}</td>
             <td>
-                <button className='btn button-two mr-2'>Edit</button>
+                <Link className='btn button-two mr-2' to={`/EditMyListing/${listing._id}`}>Edit</Link>
                 <button onClick={deleteHandle} className='btn button-one'>Delete</button>
             </td>
         </tr>

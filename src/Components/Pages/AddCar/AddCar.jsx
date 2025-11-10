@@ -47,6 +47,7 @@ const AddCar = () => {
 
     return (
         <div>
+            <title>Add Your Car - RentWheels</title>
             <div className="min-h-screen text-left flex items-center justify-center p-6">
                 <div className="card w-full max-w-2xl shadow-xl bg-base-100">
                     <div className="card-body">

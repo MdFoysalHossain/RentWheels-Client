@@ -11,6 +11,7 @@ import BrowseCars from "../Components/Pages/BrowseCars/BrowseCars";
 import Error404 from "../Components/Public/Error404";
 import SingleCar from "../Components/Pages/BrowseCars/SingleCar";
 import MyListings from "../Components/Pages/MyListings/MyListings";
+import EditMyListing from "../Components/Pages/EditMyListing/EditMyListing";
 
 
 export const router = createBrowserRouter([
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
             <AuthProvider>
                 <Root></Root>
             </AuthProvider>,
-            
+
         children: [
             {
                 index: true,
@@ -34,21 +35,25 @@ export const router = createBrowserRouter([
                 Component: Register
             }, {
                 path: "/AddCar",
-                element: <PrivateRoute><AddCar/></PrivateRoute> 
+                element: <PrivateRoute><AddCar /></PrivateRoute>
             }, {
                 path: "/BrowseCars",
                 loader: () => fetch("http://localhost:3000/BrowseCars").then(res => res.json()),
-                element: <BrowseCars/>
+                element: <BrowseCars />
             }, {
                 path: "/BrowseCars/:id",
-                element: <PrivateRoute><SingleCar/></PrivateRoute>
+                element: <PrivateRoute><SingleCar /></PrivateRoute>
             }, {
                 path: "/MyListings",
-                element: <PrivateRoute><MyListings/></PrivateRoute>
+                element: <PrivateRoute><MyListings /></PrivateRoute>
+            }, {
+                path: "/EditMyListing/:id",
+                loader: () => fetch(`http://localhost:3000/BrowseCars/`).then(res => res.json()),
+                element: <PrivateRoute><EditMyListing /></PrivateRoute>
             }
         ]
-    },{
+    }, {
         path: "/*",
-        element: <Error404/>
+        element: <Error404 />
     }
 ]);

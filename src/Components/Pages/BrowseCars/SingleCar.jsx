@@ -7,7 +7,6 @@ const SingleCar = () => {
     const { id } = useParams();
     const {userInfo} = use(AuthContext)
     let [data, setData] = useState()
-    // console.log("Params", id)
 
 
 
@@ -23,7 +22,6 @@ const SingleCar = () => {
 
 
     const updateData = () => {
-        console.log("Checking")
 
 
         fetch(`http://localhost:3000/BrowseCars/${id}`, {
@@ -41,9 +39,7 @@ const SingleCar = () => {
     if (data) {
         return (
             <div>
-                {
-                    console.log(data)
-                }
+                
                 <div className="mt-10">
                     <div className="flex gap-10 justify-center">
                         <div className=" w-[600px] text-left">
@@ -60,6 +56,7 @@ const SingleCar = () => {
                             <div className="w-[500px]">
                                 {/* <span className='text-sm text-gray-700'>Name</span> */}
                                 <h1 className='text-3xl font-bold'>{data.carName}</h1>
+                                <title>{`${data.carName} - RentWheels`}</title>
                                 <div className="divider"></div>
 
                                 <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mb-2'>Details</h2>
