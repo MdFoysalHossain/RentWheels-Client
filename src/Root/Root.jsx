@@ -1,12 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLoaderData } from 'react-router';
 import Navbar from '../Components/Public/Navbar';
 import Footer from '../Components/Public/Footer';
 
 const Root = () => {
+    const carsData = useLoaderData()
     return (
         <div>
-            <Navbar/>
+            <Navbar carsData={carsData}/>
             <Outlet></Outlet>
             <Footer/>
             

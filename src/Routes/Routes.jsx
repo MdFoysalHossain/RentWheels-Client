@@ -18,6 +18,7 @@ import MyBookings from "../Components/Pages/MyBookings/MyBookings";
 export const router = createBrowserRouter([
     {
         path: "/",
+        loader: () => fetch("http://localhost:3000/BrowseCars").then(res => res.json()),
         element:
             <AuthProvider>
                 <Root></Root>
