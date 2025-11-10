@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 
 import { MapPin, CarFront, Wallet, BookmarkCheck, BookmarkX, IdCardLanyard, AtSign } from 'lucide-react';
 
@@ -118,7 +118,7 @@ const SingleCarDetails = () => {
                             </div>
 
 
-                            <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mt-5 mb-2'>Seller Details</h2>
+                            <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mt-5 mb-2'>Provider Details</h2>
                             <div className="">
                                 <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
                                     <table className="table">

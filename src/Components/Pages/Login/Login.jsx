@@ -1,18 +1,21 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { EyeOff, Eye } from 'lucide-react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 
 const Login = () => {
 
     const { userInfo, userEmailLogin, googleSignIn } = use(AuthContext)
-
+    const navigate = useNavigate();
     
     const handleGoogleLogin = () => {
         googleSignIn()
-            .then(res => console.log("Google Login Successfully", res))
-            .catch(error => console.log("Google Login Error", error))
-    }
+            .then(res => {
+                console.log("Google Login Successfully", res);
+                navigate("/");
+            })
+            .catch(error => console.log("Google Login Error", error));
+    };
 
 
     let [eye, setEye] = useState(true)
@@ -27,7 +30,10 @@ const Login = () => {
         const password = e.target.password.value;
 
         userEmailLogin(email, password)
-            .then(res => console.log("User Logged In:", res))
+            .then(res => {
+                console.log("User Logged In:", res)
+                navigate("/");
+            })
             .catch(error => console.log("Login Error", error))
     }
 

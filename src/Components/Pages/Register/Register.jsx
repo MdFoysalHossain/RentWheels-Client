@@ -1,5 +1,5 @@
 import React, { use, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { EyeOff, Eye } from 'lucide-react';
 import AuthProvider from '../../../Contexts/Auth/AuthProvider';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 const Register = () => {
 
     const { createEmailUser, updateUserInfo, googleSignIn } = use(AuthContext)
+    const navigate = useNavigate();
 
     let [eye, setEye] = useState(true)
     let [eye2, setEye2] = useState(true)
@@ -28,7 +29,10 @@ const Register = () => {
 
     const handleGoogleLogin = () => {
         googleSignIn()
-            .then(res => console.log("Google Login Successfully", res))
+            .then(res =>{
+                 console.log("Google Login Successfully", res);
+                 navigate("/");
+                })
             .catch(error => console.log("Google Login Error", error))
     }
 
@@ -56,6 +60,7 @@ const Register = () => {
                     updateUserInfo(data)
                         .then(res => {
                             console.log("Profile Data Updated", res)
+                            navigate("/");
                         }).catch(error => {
                             console.log("Error while Updating", error)
                         })

@@ -45,8 +45,14 @@ const Navbar = ({ carsData }) => {
     const navBar = <>
         <li><NavLink to={"/"} className={"active:bg-primary active:text-white"}>Home</NavLink></li>
         <li><NavLink to={"/AddCar"} className={"active:bg-primary active:text-white"}>Add Car</NavLink></li>
-        <li><NavLink to={"/MyListings"} className={"active:bg-primary active:text-white"}>My Listings</NavLink></li>
-        <li><NavLink to={"/MyBookings"} className={"active:bg-primary  active:text-white"}>My Bookings</NavLink></li>
+        {
+            userInfo && <>
+                <li><NavLink to={"/MyListings"} className={"active:bg-primary active:text-white"}>My Listings</NavLink></li>
+                <li><NavLink to={"/MyBookings"} className={"active:bg-primary  active:text-white"}>My Bookings</NavLink></li>
+            </>
+        }
+
+
         <li><NavLink to={"/BrowseCars"} className={"active:bg-primary active:text-white"}>Browse Cars</NavLink></li>
     </>
 
@@ -90,7 +96,7 @@ const Navbar = ({ carsData }) => {
                                             <path d="m21 21-4.3-4.3"></path>
                                         </g>
                                     </svg>
-                                    <input name="search" type="search" placeholder="Search car name..." value={searchValue} onChange={handleSearchChange} className="w-full" autoComplete="off"/>
+                                    <input name="search" type="search" placeholder="Search car name..." value={searchValue} onChange={handleSearchChange} className="w-full" autoComplete="off" />
                                 </label>
                             </form>
 
@@ -99,7 +105,7 @@ const Navbar = ({ carsData }) => {
                                     <ul className="absolute z-10 w-full bg-white border rounded-md shadow-md mt-1 max-h-48 overflow-y-auto">
                                         {filteredList.map((car, index) => (
                                             <li key={index} onClick={() => setSearchValue(car.carName)} className="px-3 py-2 text-left hover:bg-gray-100 cursor-pointer">
-                                                
+
                                                 <Link to={`/BrowseCars/${car._id}`}>{car.carName}</Link>
                                             </li>
                                         ))}

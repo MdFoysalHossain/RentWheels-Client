@@ -1,8 +1,13 @@
 import React from 'react';
 import { MapPin, CarFront, Wallet } from 'lucide-react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 const SingleCarCard = ({ car }) => {
+        const location = useLocation();
+    
+        const isHome = location.pathname === "/";
+        console.log(isHome? "Yes its Home": "Its Not Home")
+        
     return (
 
         <div className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
