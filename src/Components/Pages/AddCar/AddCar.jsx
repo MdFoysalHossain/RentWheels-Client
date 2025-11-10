@@ -29,7 +29,8 @@ const AddCar = () => {
             email: email,
             status: "Available",
             name: name,
-            bookedBy: ""
+            bookedBy: "",
+            createdAt: { type: Date, default: Date.now },
         }
 
         fetch("http://localhost:3000/AddCar", {

@@ -29,14 +29,18 @@ const PrevArrow = ({ onClick }) => (
 
 const Banner = () => {
     const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-    };
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    autoplay: true,        
+    autoplaySpeed: 3000,   
+    pauseOnHover: true,    
+};
+
 
     return (
         <div className="relative h-[500px] rounded-xl overflow-hidden mt-10">

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const SingleCarCard = ({ car }) => {
     return (
 
-        <div className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
+        <div className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
             <div className="grid md:grid-cols-2 items-center">
                 <div className="relative  overflow-hidden h-full">
                     <img
