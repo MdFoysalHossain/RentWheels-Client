@@ -14,7 +14,7 @@ const SingleBookings = ({ book, index, bookings, setBookings }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Remove It!"
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:3000/MyBookings/${id}`, {
@@ -27,8 +27,8 @@ const SingleBookings = ({ book, index, bookings, setBookings }) => {
                         const newData = bookings.filter(item => item._id !== id)
                         setBookings(newData)
                         Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
+                            title: "Removed!",
+                            text: "Your Booking Has Been Removed.",
                             icon: "success"
                         });
                     })

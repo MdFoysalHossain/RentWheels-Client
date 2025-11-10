@@ -1,9 +1,10 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import SingleListing from './SingleListing';
+import { Car } from 'lucide-react';
 
 const MyListings = () => {
-    const {userInfo} = use(AuthContext)
+    const { userInfo } = use(AuthContext)
     let [listings, setListings] = useState(null)
 
     useEffect(() => {
@@ -16,31 +17,35 @@ const MyListings = () => {
         return (() => getData())
     }, [])
 
-    if(!listings){
+    if (!listings) {
         return <div className='w-full h-[50vh] flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>
     }
 
     return (
-        <div className='bg-white mt-10'>
-            <title>My Listings - RentWheels</title>
-            <div className="overflow-x-auto">
-                <table className="table ">
-                    <thead>
-                        <tr>
-                            <th>SL No</th>
-                            <th>Car Name</th>
-                            <th>Category</th>
-                            <th>Rent Price</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            listings.map((listing,  index) => <SingleListing setListings={setListings} listings={listings} index={index} listing={listing} key={index}/>)
-                        }
-                    </tbody>
-                </table>
+        <div className=" mt-10">
+            <h1 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>My Listings <Car className='text-primary ' size={30} /></h1>
+            <div className='bg-white mt-10'>
+                <title>My Listings - RentWheels</title>
+
+                <div className="overflow-x-auto">
+                    <table className="table ">
+                        <thead>
+                            <tr>
+                                <th>SL No</th>
+                                <th>Car Name</th>
+                                <th>Category</th>
+                                <th>Rent Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                listings.map((listing, index) => <SingleListing setListings={setListings} listings={listings} index={index} listing={listing} key={index} />)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
