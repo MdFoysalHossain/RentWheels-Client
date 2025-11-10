@@ -4,6 +4,7 @@ import Error404Img from "../../../../public/404.png"
 const NotFoundListing = () => {
     return (
         <div className='h-[80vh] flex justify-center items-center'>
+            <title>Page Not Found - RentWheels</title>
             <div className="">
                 <h2 className='text-[150px] font-bold leading-[150px] relative'>
                     <span className='text-8xl left-[50px] -top-2.5 absolute -rotate-3'>PAGE</span>

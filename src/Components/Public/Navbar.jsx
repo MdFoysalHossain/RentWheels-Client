@@ -54,10 +54,14 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex="-1"
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 min-w-50 p-2 ">
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 min-w-70 p-2 ">
+                                <li className=''>
+                                    <p className='cursor-pointer bg-transparent hover:bg-transparent -mb-2 active:text-black'>Name</p>
+                                    <p className='cursor-pointer text-[16px] bg-transparent hover:bg-transparent active:text-black'>{userInfo.displayName}</p>
+                                </li>
                                 <li className=''>
                                     <p className='cursor-pointer bg-transparent hover:bg-transparent -mb-2 active:text-black'>Email</p>
-                                    <p className='cursor-pointer text-lg bg-transparent hover:bg-transparent active:text-black mb-3'>{userInfo.email}</p>
+                                    <p className='cursor-pointer text-[16px] bg-transparent hover:bg-transparent active:text-black mb-3'>{userInfo.email}</p>
                                 </li>
                                 <li><button onClick={handleLogOut} className='button-two flex justify-center items-center'>Logout</button></li>
                             </ul>

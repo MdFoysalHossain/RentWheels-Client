@@ -22,6 +22,7 @@ const MyListings = () => {
 
     return (
         <div className='bg-white mt-10'>
+            <title>My Listings - RentWheels</title>
             <div className="overflow-x-auto">
                 <table className="table ">
                     <thead>

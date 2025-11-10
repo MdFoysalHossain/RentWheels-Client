@@ -1,6 +1,5 @@
-import React, { use, useEffect, useState } from 'react';
+import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
-import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import SingleCarDetails from './SingleCarDetails';
 import NotFoundListing from '../EditMyListing/NotFoundListing';
 
@@ -23,8 +22,6 @@ const SingleCar = () => {
         } else {
             return (<NotFoundListing />)
         }
-    } else {
-        console.log("All Data exit")
     }
 
 };
