@@ -30,8 +30,9 @@ const AddCar = () => {
             status: "Available",
             name: name,
             bookedBy: "",
-            createdAt: { type: Date, default: Date.now },
-        }
+            createdAt: new Date(),
+        };
+
 
         fetch("http://localhost:3000/AddCar", {
             method: "POST",
