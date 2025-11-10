@@ -12,6 +12,7 @@ import Error404 from "../Components/Public/Error404";
 import SingleCar from "../Components/Pages/BrowseCars/SingleCar";
 import MyListings from "../Components/Pages/MyListings/MyListings";
 import EditMyListing from "../Components/Pages/EditMyListing/EditMyListing";
+import MyBookings from "../Components/Pages/MyBookings/MyBookings";
 
 
 export const router = createBrowserRouter([
@@ -47,6 +48,9 @@ export const router = createBrowserRouter([
             }, {
                 path: "/MyListings",
                 element: <PrivateRoute><MyListings /></PrivateRoute>
+            }, {
+                path: "/MyBookings",
+                element: <PrivateRoute><MyBookings /></PrivateRoute>
             }, {
                 path: "/EditMyListing/:id",
                 loader: () => fetch(`http://localhost:3000/BrowseCars/`).then(res => res.json()),
