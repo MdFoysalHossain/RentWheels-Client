@@ -44,17 +44,50 @@ const Navbar = ({ carsData }) => {
     }
 
     const navBar = <>
-        <li><NavLink to={"/"} className={"active:bg-primary active:text-white"}>Home</NavLink></li>
-        <li><NavLink to={"/AddCar"} className={"active:bg-primary active:text-white"}>Add Car</NavLink></li>
+        <li><NavLink to={"/"} className={"active:bg-primary active:text-white py-2"}>Home</NavLink></li>
+        <li><NavLink to={"/AddCar"} className={"active:bg-primary active:text-white py-2"}>Add Car</NavLink></li>
         {
             userInfo && <>
-                <li><NavLink to={"/MyListings"} className={"active:bg-primary active:text-white"}>My Listings</NavLink></li>
-                <li><NavLink to={"/MyBookings"} className={"active:bg-primary  active:text-white"}>My Bookings</NavLink></li>
+                <li><NavLink to={"/MyListings"} className={"active:bg-primary active:text-white py-2"}>My Listings</NavLink></li>
+                <li><NavLink to={"/MyBookings"} className={"active:bg-primary  active:text-white py-2"}>My Bookings</NavLink></li>
             </>
         }
 
 
-        <li><NavLink to={"/BrowseCars"} className={"active:bg-primary active:text-white"}>Browse Cars</NavLink></li>
+        <li><NavLink to={"/BrowseCars"} className={"active:bg-primary active:text-white py-2"}>Browse Cars</NavLink></li>
+
+        <li className='md:hidden'>
+            <div className="relative max-w-sm w-[230px] mx-auto">
+
+                <form onSubmit={searchHandle}>
+                    <label className="input flex items-center">
+                        <svg
+                            className="h-[1em] opacity-50"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input name="search" type="search" placeholder="Search car name..." value={searchValue} onChange={handleSearchChange} className="w-full" autoComplete="off" />
+                    </label>
+                </form>
+
+                {
+                    filteredList.length > 0 && (
+                        <ul className="absolute w-[210px]  top-10 -left-1.5 z-10000  bg-white border rounded-md shadow-md mt-1 max-h-48 overflow-y-auto">
+                            {filteredList.map((car, index) => (
+                                <li key={index} onClick={() => setSearchValue(car.carName)} className="px-3 py-2 text-left hover:bg-gray-100 cursor-pointer">
+
+                                    <Link to={`/BrowseCars/${car._id}`}>{car.carName}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    )
+                }
+            </div>
+        </li>
     </>
 
     return (
@@ -66,8 +99,9 @@ const Navbar = ({ carsData }) => {
                     </div>
                     <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu w-[250px] menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 shadow">
                         {navBar}
+
                     </ul>
                 </div>
                 <NavLink className="btn bg-transparent shadow-none border-0 text-2xl font-bold gap-0">
@@ -85,7 +119,7 @@ const Navbar = ({ carsData }) => {
 
                 {
                     isHome && (
-                        <div className="relative w-full max-w-sm mx-auto">
+                        <div className="relative w-full max-w-sm mx-auto hidden md:inline">
 
                             <form onSubmit={searchHandle}>
                                 <label className="input flex items-center">
