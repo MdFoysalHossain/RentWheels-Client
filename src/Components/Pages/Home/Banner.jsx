@@ -3,11 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-// import BannerImg2 from "../../../../public/Banner1.jpg";
 import BannerImg1 from "/Banner1.jpg";
 import BannerImg2 from "/Banner2.jpg";
 import BannerImg3 from "/Banner3.jpg";
 import { Link } from 'react-router';
+import { Typewriter } from 'react-simple-typewriter'
 
 const NextArrow = ({ onClick }) => (
     <button
@@ -29,18 +29,20 @@ const PrevArrow = ({ onClick }) => (
 
 const Banner = () => {
     const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    autoplay: true,        
-    autoplaySpeed: 3000,   
-    pauseOnHover: true,    
-};
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true,
+    };
 
+
+    const type1 = "Browse Cars";
 
     return (
         <div className="relative h-[500px] rounded-xl overflow-hidden mt-10">
@@ -54,8 +56,18 @@ const Banner = () => {
                         <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 px-50">
                             Find the perfect car for your next trip, from luxury sedans to budget rides, available anytime, anywhere.
                         </h2>
-                        
-                        <Link to={"/BrowseCars"} className="btn border-0 shadow-none button-one">Browse Cars</Link>
+
+                        <Link to={"/BrowseCars"} className="btn border-0 shadow-none button-one">
+                            <Typewriter
+                                words={["Browse Cars"]}
+                                loop={true}
+                                cursor
+                                cursorStyle=""
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={2000}
+                            />
+                        </Link>
                     </div>
                 </div>
 
@@ -69,7 +81,16 @@ const Banner = () => {
                             Have a car sitting idle? List it on RentWheels and start earning from local renters!
                         </h2>
 
-                        <Link to={"/AddCar"} className="btn border-0 shadow-none button-one">Become a Host</Link>
+                        <Link to={"/AddCar"} className="btn border-0 shadow-none button-one">
+                            <Typewriter
+                                words={["Become a Host"]}
+                                loop={true}
+                                cursor
+                                cursorStyle=""
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={2000} />
+                        </Link>
                     </div>
                 </div>
 
@@ -83,7 +104,19 @@ const Banner = () => {
                             Book your car in minutes with transparent pricing, verified hosts, and 24/7 support.
                         </h2>
 
-                        <Link to={"/BrowseCars"} className="btn border-0 shadow-none button-one">Book Now</Link>
+                        <Link to={"/BrowseCars"} className="btn border-0 shadow-none button-one">
+
+                            <Typewriter
+                                words={["Book Now"]}
+                                loop={true}
+                                cursor
+                                cursorStyle=""
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={2000} />
+
+                        </Link>
+
                     </div>
                 </div>
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Swal from 'sweetalert2'
 import { motion } from "motion/react"
 
+
 const SingleListing = ({ listing, index, listings, setListings }) => {
     // console.log(listing)
 
