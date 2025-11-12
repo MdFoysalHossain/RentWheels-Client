@@ -1,5 +1,6 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
+import { motion } from "motion/react"
 
 const AddCar = () => {
 
@@ -48,7 +49,15 @@ const AddCar = () => {
 
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+            >
             <title>Add Your Car - RentWheels</title>
             <div className="min-h-screen text-left flex items-center justify-center p-6">
                 <div className="card w-full max-w-2xl shadow-xl bg-base-100">
@@ -183,7 +192,7 @@ const AddCar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

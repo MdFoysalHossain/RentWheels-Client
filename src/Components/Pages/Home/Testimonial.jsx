@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Star } from 'lucide-react';
 import "./Testimonial.css"
+import { motion } from "motion/react"
 
 const NextArrow = ({ onClick }) => (
     <button
@@ -43,7 +44,16 @@ const Testimonial = () => {
 
 
     return (
-        <div className="mt-20">
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+
+            className="mt-20">
             <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>Customer <span className='text-primary'>Testimonials</span></h2>
             <div className="relative max-h-[350px] w-full rounded-xl overflow-hidden ">
                 <Slider {...settings}>
@@ -115,8 +125,8 @@ const Testimonial = () => {
 
 
                 </Slider>
-           </div>
-        </div>
+            </div>
+        </motion.div>
     );
 };
 

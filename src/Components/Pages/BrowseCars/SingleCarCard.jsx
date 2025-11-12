@@ -1,16 +1,24 @@
 import React from 'react';
-import { MapPin, CarFront, Wallet } from 'lucide-react';
-import { Link, useLocation } from 'react-router';
+import { MapPin, CarFront, Wallet, Contact } from 'lucide-react';
+import { Link, } from 'react-router';
+import { motion } from "motion/react"
+
 
 const SingleCarCard = ({ car }) => {
-        const location = useLocation();
-    
-        const isHome = location.pathname === "/";
-        console.log(isHome? "Yes its Home": "Its Not Home")
-        
+
     return (
 
-        <div className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+
+
+            className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
             <div className="grid md:grid-cols-2 items-center ">
                 <div className="relative overflow-hidden h-[340px]">
                     <img
@@ -39,14 +47,20 @@ const SingleCarCard = ({ car }) => {
                             <h2 className="text-2xl font-bold text-gray-900 mb-1">
                                 {car.carName}
                             </h2>
-                            <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                                {car.description}
-                            </p>
+                            {/* <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                                    {car.description}
+                                </p> */}
 
                             <div className="space-y-2">
                                 <p className="flex items-center gap-2 text-gray-700">
                                     <MapPin size={18} className="text-primary" />
                                     <span>{car.location}</span>
+                                </p>
+                                <p className="flex items-center gap-2 text-gray-700">
+                                    {/* <CarFront size={18} className="text-primary" />
+                                    <span>{car.category}</span> */}
+                                    <Contact size={18} className="text-primary" />
+                                    <span>{car.name}</span>
                                 </p>
                                 <p className="flex items-center gap-2 text-gray-700">
                                     <CarFront size={18} className="text-primary" />
@@ -70,7 +84,7 @@ const SingleCarCard = ({ car }) => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

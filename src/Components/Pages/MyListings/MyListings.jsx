@@ -1,7 +1,8 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import SingleListing from './SingleListing';
-import { Car } from 'lucide-react';
+import { Car, CircleChevronLeft } from 'lucide-react';
+import { Link } from 'react-router';
 
 const MyListings = () => {
     const { userInfo } = use(AuthContext)
@@ -21,6 +22,16 @@ const MyListings = () => {
         return <div className='w-full h-[50vh] flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>
     }
 
+    if (listings.length === 0) {
+        return (
+            <div className="h-[80vh] flex justify-center items-center flex-col gap-5">
+                <title>My Listings - RentWheels</title>
+                <h2 className='text-4xl font-semibold capitalize text-left'>It seems you dont Have <br /> any listed Cars</h2>
+                <span className='text-xl flex justify-center items-center gap-1'><CircleChevronLeft className='text-primary' /> Go to <Link to={"/BrowseCars"} className='underline text-primary'>Browse Cars</Link></span>
+            </div>
+        )
+    }
+
     return (
         <div className=" mt-10">
             <h1 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>My Listings <Car className='text-primary ' size={30} /></h1>
@@ -28,7 +39,7 @@ const MyListings = () => {
                 <title>My Listings - RentWheels</title>
 
                 <div className="overflow-x-auto">
-                    <table className="table ">
+                    <table className="table overflow-hidden ">
                         <thead>
                             <tr>
                                 <th>SL No</th>

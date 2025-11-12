@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router';
 import { EyeOff, Eye } from 'lucide-react';
 import AuthProvider from '../../../Contexts/Auth/AuthProvider';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
+import { motion } from "motion/react"
+
 
 const Register = () => {
 
@@ -29,10 +31,10 @@ const Register = () => {
 
     const handleGoogleLogin = () => {
         googleSignIn()
-            .then(res =>{
-                 console.log("Google Login Successfully", res);
-                 navigate("/");
-                })
+            .then(res => {
+                console.log("Google Login Successfully", res);
+                navigate("/");
+            })
             .catch(error => console.log("Google Login Error", error))
     }
 
@@ -50,7 +52,7 @@ const Register = () => {
         if (password === confirmPassword) {
             createEmailUser(email, password)
                 .then(res => {
-                    console.log("Result",res)
+                    console.log("Result", res)
 
                     const data = {
                         displayName: `${fName + " " + sName}`,
@@ -81,7 +83,15 @@ const Register = () => {
     }
 
     return (
-        <div className='w-full flex justify-center items-center mt-10 h-[80vh]'>
+        <motion.div
+            initial={{ opacity: 1, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+            className='w-full flex justify-center items-center mt-10 h-[80vh]'>
             <title>Register Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Hello <span className='text-primary'>There!</span></p>
@@ -91,53 +101,53 @@ const Register = () => {
                         <fieldset className="fieldset">
 
 
-                            
-                                
-                                    <div className={`'text-left flex flex-col gap-2' ${progress ? "visible" : "hidden"}` }>
-                                        <div className='flex gap-5 text-left'>
-                                            <div>
-                                                <label className="label">First Name<span className='text-primary'>*</span></label>
-                                                <input name='firstName' type="text" className="input" placeholder="Josh" required />
-                                            </div>
-                                            <div>
-                                                <label className="label">Second Name<span className='text-primary'>*</span></label>
-                                                <input name='secondName' type="text" className="input" placeholder="Sthephen" required />
-                                            </div>
-                                        </div>
-                                        <label className="label">Photo Url<span className='text-primary'>*</span></label>
-                                        <input name='imageUrl' type="text" className="input  w-full" placeholder="https://www.example-image.com/imageurl" required />
-                                        <label className="label">Email<span className='text-primary'>*</span></label>
-                                        <input name='email' type="email" className="input  w-full" placeholder="joshstephen@email.com" required />
-                                    </div> 
 
-                                    <div className={`'text-left flex flex-col gap-2' ${progress ? "hidden" : "visible"}` }>
-                                        <label className="label">Password<span className='text-primary'>*</span></label>
-                                        <input name='password' onChange={passChange} type={eye ? "password" : "text"} className="input  w-full" placeholder="Password" required />
 
-                                        {
-                                            eye ? <EyeOff onClick={checkEye} className='absolute z-10 cursor-pointer bottom-[332px] right-[30px] bg-gray-100 p-1 rounded' size={30} /> :
-                                                <Eye onClick={checkEye} className='absolute z-10 cursor-pointer bottom-[332px] right-[30px] bg-gray-100 p-1 rounded' size={30} />
-                                        }
-
-                                        <label className="label">Confirm Password<span className='text-primary'>*</span></label>
-                                        <input name='confirmPassword' type={eye2 ? "password" : "text"} className="input  w-full" placeholder="Confirm Password" required />
-                                        {
-                                            eye2 ? <EyeOff onClick={checkEye2} className='absolute z-10 cursor-pointer bottom-[274px] right-[30px] bg-gray-100 p-1 rounded' size={30} /> :
-                                                <Eye onClick={checkEye2} className='absolute z-10 cursor-pointer bottom-[274px] right-[30px] bg-gray-100 p-1 rounded' size={30} />
-                                        }
-
-                                        <div>
-
-                                            <ul className='list-decimal ml-4 mt-5'>
-                                                {/* <li className={`text-left ${checkSame ? "text-black" : "text-primary"}`}>Password and Confirm Password Must Match</li> */}
-                                                <li className={`text-left ${checkUpper ? "text-black" : "text-primary"}`}>Must contain at least one uppercase letter</li>
-                                                <li className={`text-left ${checkLower ? "text-black" : "text-primary"}`}>Must contain at least one lowercase letter</li>
-                                                <li className={`text-left ${checkLength ? "text-black" : "text-primary"}`}>Must be at least 6 characters long</li>
-                                            </ul>
-                                        </div>
-
+                            <div className={`'text-left flex flex-col gap-2' ${progress ? "visible" : "hidden"}`}>
+                                <div className='flex gap-5 text-left'>
+                                    <div>
+                                        <label className="label">First Name<span className='text-primary'>*</span></label>
+                                        <input name='firstName' type="text" className="input" placeholder="Josh" required />
                                     </div>
-                            
+                                    <div>
+                                        <label className="label">Second Name<span className='text-primary'>*</span></label>
+                                        <input name='secondName' type="text" className="input" placeholder="Sthephen" required />
+                                    </div>
+                                </div>
+                                <label className="label">Photo Url<span className='text-primary'>*</span></label>
+                                <input name='imageUrl' type="text" className="input  w-full" placeholder="https://www.example-image.com/imageurl" required />
+                                <label className="label">Email<span className='text-primary'>*</span></label>
+                                <input name='email' type="email" className="input  w-full" placeholder="joshstephen@email.com" required />
+                            </div>
+
+                            <div className={`'text-left flex flex-col gap-2' ${progress ? "hidden" : "visible"}`}>
+                                <label className="label">Password<span className='text-primary'>*</span></label>
+                                <input name='password' onChange={passChange} type={eye ? "password" : "text"} className="input  w-full" placeholder="Password" required />
+
+                                {
+                                    eye ? <EyeOff onClick={checkEye} className='absolute z-10 cursor-pointer bottom-[332px] right-[30px] bg-gray-100 p-1 rounded' size={30} /> :
+                                        <Eye onClick={checkEye} className='absolute z-10 cursor-pointer bottom-[332px] right-[30px] bg-gray-100 p-1 rounded' size={30} />
+                                }
+
+                                <label className="label">Confirm Password<span className='text-primary'>*</span></label>
+                                <input name='confirmPassword' type={eye2 ? "password" : "text"} className="input  w-full" placeholder="Confirm Password" required />
+                                {
+                                    eye2 ? <EyeOff onClick={checkEye2} className='absolute z-10 cursor-pointer bottom-[274px] right-[30px] bg-gray-100 p-1 rounded' size={30} /> :
+                                        <Eye onClick={checkEye2} className='absolute z-10 cursor-pointer bottom-[274px] right-[30px] bg-gray-100 p-1 rounded' size={30} />
+                                }
+
+                                <div>
+
+                                    <ul className='list-decimal ml-4 mt-5'>
+                                        {/* <li className={`text-left ${checkSame ? "text-black" : "text-primary"}`}>Password and Confirm Password Must Match</li> */}
+                                        <li className={`text-left ${checkUpper ? "text-black" : "text-primary"}`}>Must contain at least one uppercase letter</li>
+                                        <li className={`text-left ${checkLower ? "text-black" : "text-primary"}`}>Must contain at least one lowercase letter</li>
+                                        <li className={`text-left ${checkLength ? "text-black" : "text-primary"}`}>Must be at least 6 characters long</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
 
                             {
                                 !progress ?
@@ -161,7 +171,7 @@ const Register = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

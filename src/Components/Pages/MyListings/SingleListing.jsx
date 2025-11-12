@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2'
+import { motion } from "motion/react"
 
 const SingleListing = ({ listing, index, listings, setListings }) => {
     // console.log(listing)
@@ -39,7 +40,17 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
     }
 
     return (
-        <tr>
+        <motion.tr
+            initial={{ opacity: 1, y: 7 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.35,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }} 
+            >
+
+            
             <th>{index + 1}</th>
             <th>{listing.carName}</th>
             <td>{listing.category}</td>
@@ -49,7 +60,7 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
                 <Link className='btn button-two mr-2' to={`/EditMyListing/${listing._id}`}>Edit</Link>
                 <button onClick={deleteHandle} className='btn button-one'>Delete</button>
             </td>
-        </tr>
+        </motion.tr>
     );
 };
 

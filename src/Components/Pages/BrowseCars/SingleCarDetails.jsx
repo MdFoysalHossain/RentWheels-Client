@@ -2,13 +2,15 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { useLocation, useParams } from 'react-router';
 
+import { motion } from "motion/react"
+
 import { MapPin, CarFront, Wallet, BookmarkCheck, BookmarkX, IdCardLanyard, AtSign } from 'lucide-react';
 
 const SingleCarDetails = () => {
 
     let [data, setData] = useState()
     const { id } = useParams();
-    const {userInfo} = use(AuthContext)
+    const { userInfo } = use(AuthContext)
 
 
     useEffect(() => {
@@ -39,7 +41,15 @@ const SingleCarDetails = () => {
 
     if (data) {
         return (
-            <div>
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                    duration: 0.35,
+                    ease: "easeOut",
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+            >
 
                 <div className="mt-10">
                     <div className="flex gap-10 justify-center">
@@ -154,7 +164,7 @@ const SingleCarDetails = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         );
     }
 };

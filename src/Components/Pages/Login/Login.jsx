@@ -2,6 +2,7 @@ import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { EyeOff, Eye } from 'lucide-react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
+import { motion } from "motion/react"
 
 const Login = () => {
 
@@ -38,7 +39,16 @@ const Login = () => {
     }
 
     return (
-        <div className='w-full flex justify-center items-center h-[80vh]'>
+        <motion.div
+            initial={{ opacity: 1, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut",
+            }}
+            viewport={{ once: true, amount: 0.3 }} 
+            
+            className='w-full flex justify-center items-center h-[80vh]'>
             <title>Login to Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Welcome <span className='text-primary'>Back!</span></p>
@@ -70,7 +80,7 @@ const Login = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 
