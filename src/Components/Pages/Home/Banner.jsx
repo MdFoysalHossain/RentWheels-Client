@@ -45,15 +45,15 @@ const Banner = () => {
     const type1 = "Browse Cars";
 
     return (
-        <div className="relative max-w-[1280px] mx-auto h-[500px] rounded-xl overflow-hidden mt-10">
-            <Slider {...settings}>
+        <div className="relative max-w-[1280px] mx-5 xl:mx-auto h-[500px] rounded-xl overflow-hidden mt-10">
+            <Slider  {...settings}>
                 <div className="relative flex justify-center items-center h-[500px]  overflow-hidden">
                     <img src={BannerImg1} alt="" className="object-cover w-full h-full" />
 
                     <div className="bg-black/30 absolute inset-0"></div>
 
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 px-50">
+                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 lg:px-50">
                             Find the perfect car for your next trip, from luxury sedans to budget rides, available anytime, anywhere.
                         </h2>
 
@@ -77,7 +77,7 @@ const Banner = () => {
                     <div className="bg-black/30 absolute inset-0"></div>
 
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 px-50">
+                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 lg:px-50">
                             Have a car sitting idle? List it on RentWheels and start earning from local renters!
                         </h2>
 
@@ -100,7 +100,7 @@ const Banner = () => {
                     <div className="bg-black/30 absolute inset-0"></div>
 
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 px-50">
+                        <h2 className="text-white text-2xl md:text-4xl font-bold mb-4 lg:px-50">
                             Book your car in minutes with transparent pricing, verified hosts, and 24/7 support.
                         </h2>
 

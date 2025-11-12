@@ -20,11 +20,11 @@ const SingleCarCard = ({ car }) => {
 
             className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">
             <div className="grid md:grid-cols-2 items-center ">
-                <div className="relative overflow-hidden h-[340px]">
+                <div className="relative overflow-hidden md:h-[340px]">
                     <img
                         src={car.imageUrl}
                         alt={car.carName}
-                        className="w-auto h-[360px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+                        className="w-auto md:w-full md:h-[360px] object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 from-black/40 via-transparent to-transparent"></div>
 

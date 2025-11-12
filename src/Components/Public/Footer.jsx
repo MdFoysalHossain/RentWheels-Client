@@ -6,8 +6,8 @@ const Footer = () => {
     return (
 
         <div className='bg-black mt-20 w-full'>
-            <div className="grid grid-cols-3 justify-items-center *:max-w-[350px] max-w-[1220px] mx-auto gap-10 py-10 text-white">
-                <div className="text-white text-left px-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 px-10 justify-start lg:justify-items-center *:max-w-[350px] max-w-[1220px] mx-auto gap-10 py-10 text-white">
+                <div className="text-white text-left">
                     <NavLink className="btn -ml-5 bg-transparent shadow-none border-0 text-2xl font-bold gap-0 text-white">
                         <img src={"./Alloy-Wheel.png"} className='w-[30px] mr-1' alt="" />
                         Rent<span className='text-primary'>Wheels</span>

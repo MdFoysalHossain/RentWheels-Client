@@ -11,10 +11,10 @@ const Steps = () => {
                 ease: "easeOut",
             }}
             viewport={{ once: true, amount: 0.3 }}
-            className='text-left mt-20'>
+            className='text-left  mt-20'>
             <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>How It <span className='text-primary'>Works</span></h2>
             <div className="flex flex-col justify-center items-center">
-                <div className="flex flex-col gap-2 w-[600px]">
+                <div className="flex flex-col gap-2 w-[330px] lg:w-[600px]">
                     <details className="collapse bg-base-100 border border-base-300" name="my-accordion-det-1" open>
                         <summary className="collapse-title font-semibold">Step 1: Log in to your account.</summary>
                         <div className="collapse-content text-sm">Click the "Login" button in the top right corner and follow the registration process.</div>

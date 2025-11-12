@@ -15,7 +15,7 @@ const WhyUs = () => {
                 }} 
                 viewport={{ once: true, amount: 0.3 }}
                 
-                className=" grid grid-cols-3 gap-10">
+                className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 gap-10">
                 <div className="card card-dash bg-base-100 w-full min-h-[150px] shadow-md">
                     <div className="card-body text-left">
                         <h2 className="card-title text-primary">Wide Selection of Cars</h2>

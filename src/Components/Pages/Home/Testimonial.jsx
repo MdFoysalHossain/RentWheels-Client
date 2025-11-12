@@ -38,7 +38,32 @@ const Testimonial = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 1024, // up to 1024px
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 768, // up to 768px
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 480, // up to 480px
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
+
 
 
 
@@ -53,14 +78,14 @@ const Testimonial = () => {
             }}
             viewport={{ once: true, amount: 0.3 }}
 
-            className="mt-20">
-            <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>Customer <span className='text-primary'>Testimonials</span></h2>
-            <div className="relative max-h-[350px] w-full rounded-xl overflow-hidden ">
+            className="mt-20 px-2 overflow-hidden">
+            <h2 className='text-2xl  font-bold text-left mb-10 flex justify-center items-center gap-2 '>Customer <span className='text-primary'>Testimonials</span></h2>
+            <div className="relative w-full max-w-6xl mx-auto">
                 <Slider {...settings}>
                     <div className=" flex justify-center rounded-xl bg-white shadow-md items-center h-[400px] w-[500px] overflow-hidden">
                         <div className="">
                             <div className="p-4 flex text-left  items-start gap-3">
-                                <img className='w-[100px] h-[100px] rounded-2xl' src="https://static-cse.canva.com/blob/2196696/1600w-B-cRyoh7b98.jpg" alt="" />
+                                <img className='w-[80px] h-[80px] md:h-[100px] md:w-[100px] mt-2.5 md:mt-0 rounded-2xl' src="https://static-cse.canva.com/blob/2196696/1600w-B-cRyoh7b98.jpg" alt="" />
                                 <div className="">
                                     <span className='text-sm'>Name</span>
                                     <p className='text-lg font-semibold'>Faria Akter</p>
@@ -68,10 +93,13 @@ const Testimonial = () => {
                                     <p className='text-lg font-semibold'>faria.akter@gmail.com</p>
                                 </div>
                                 <div className="text-right w-full h-full">
-                                    <span className='text-primary flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> </span>
+                                    <span className='text-primary hidden  lg:flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> </span>
                                 </div>
                             </div>
                             <div className="text-left p-4 -mt-[20px]">
+                                <div className="text-right w-full h-full">
+                                    <span className='text-primary flex lg:hidden justify-start gap-1 mb-2'><Star /> <Star /> <Star /> <Star /> </span>
+                                </div>
                                 <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mb-2'>Testimony</h2>
                                 <p className='italic'>"RentWheels made renting a car so easy and convenient! The booking process was quick, and the car was in great condition. I just wish there were a few more pickup locations near my area, but overall a very smooth experience. Definitely recommend!"</p>
                             </div>
@@ -82,7 +110,7 @@ const Testimonial = () => {
                     <div className=" flex justify-center rounded-xl bg-white shadow-md items-center h-[400px] w-[500px] overflow-hidden">
                         <div className="">
                             <div className="p-4 flex text-left  items-start gap-3">
-                                <img className='w-[100px] h-[100px] rounded-2xl' src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg=" alt="" />
+                                <img className='w-[80px] h-[80px] md:h-[100px] md:w-[100px] mt-2.5 md:mt-0 rounded-2xl' src="https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg=" alt="" />
                                 <div className="">
                                     <span className='text-sm'>Name</span>
                                     <p className='text-lg font-semibold'>Rafiq Ahmed</p>
@@ -90,10 +118,13 @@ const Testimonial = () => {
                                     <p className='text-lg font-semibold'>rafiq.ahmed@gmail.com</p>
                                 </div>
                                 <div className="text-right w-full h-full">
-                                    <span className='text-primary flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> <Star /> </span>
+                                    <span className='text-primary hidden  lg:flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> <Star /> </span>
                                 </div>
                             </div>
                             <div className="text-left p-4 -mt-[20px]">
+                                <div className="text-left w-full h-full">
+                                    <span className='text-primary flex lg:hidden justify-start gap-1 mb-2'><Star /> <Star /> <Star /> <Star /> <Star /> </span>
+                                </div>
                                 <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mb-2'>Testimony</h2>
                                 <p className='italic'>"Great platform for renting cars. I loved the variety of cars available. Only minor issue was a slight delay in pickup, but overall a very good experience."</p>
                             </div>
@@ -105,7 +136,7 @@ const Testimonial = () => {
                     <div className=" flex justify-center rounded-xl bg-white shadow-md items-center h-[400px] w-[500px] overflow-hidden">
                         <div className="">
                             <div className="p-4 flex text-left  items-start gap-3">
-                                <img className='w-[100px] h-[100px] rounded-2xl' src="https://media.istockphoto.com/id/1852295642/photo/close-up-portrait-of-pretty-smiling-happy-woman-with-short-hair-in-casual-wear-looking-calmly.jpg?s=612x612&w=0&k=20&c=mlg72Ja7AgoxzPe0M8LCAVwtACLjHKOdG5JjkUq1yXU=" alt="" />
+                                <img className='w-[80px] h-[80px] mt-2.5 md:mt-0 md:h-[100px] md:w-[100px] rounded-2xl' src="https://media.istockphoto.com/id/1852295642/photo/close-up-portrait-of-pretty-smiling-happy-woman-with-short-hair-in-casual-wear-looking-calmly.jpg?s=612x612&w=0&k=20&c=mlg72Ja7AgoxzPe0M8LCAVwtACLjHKOdG5JjkUq1yXU=" alt="" />
                                 <div className="">
                                     <span className='text-sm'>Name</span>
                                     <p className='text-lg font-semibold'>Nusrat Jaman</p>
@@ -113,10 +144,15 @@ const Testimonial = () => {
                                     <p className='text-lg font-semibold'>nusratjaman@gmail.com</p>
                                 </div>
                                 <div className="text-right w-full h-full">
-                                    <span className='text-primary flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> </span>
+                                    <span className='text-primary hidden  lg:flex justify-end gap-1'><Star /> <Star /> <Star /> <Star /> </span>
                                 </div>
                             </div>
                             <div className="text-left p-4 -mt-[20px]">
+
+                                <div className="text-right w-full h-full">
+                                    <span className='text-primary flex lg:hidden justify-start mb-2 gap-1'><Star /> <Star /> <Star /> <Star /> </span>
+                                </div>
+
                                 <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mb-2'>Testimony</h2>
                                 <p className='italic'>"RAmazing service! The booking was instant, customer support was very helpful, and the car exceeded my expectations. Highly recommend RentWheels!"</p>
                             </div>
