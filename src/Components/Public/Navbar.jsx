@@ -70,6 +70,7 @@ const Navbar = ({ carsData }) => {
                     </ul>
                 </div>
                 <NavLink className="btn bg-transparent shadow-none border-0 text-2xl font-bold gap-0">
+                    <img src={"./Alloy-Wheel.png"} className='w-[30px] mr-1' alt="" />
                     Rent<span className='text-primary'>Wheels</span>
                 </NavLink>
             </div>

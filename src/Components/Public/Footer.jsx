@@ -7,7 +7,9 @@ const Footer = () => {
         <div className='bg-black mt-20 w-full'>
             <div className="grid grid-cols-5 gap-10 py-10 text-white">
                 <div className="text-white text-left px-10 col-span-1 col-start-2">
-                    <NavLink className="btn bg-transparent shadow-none border-0 text-2xl font-bold gap-0 text-white">
+                    <NavLink className="btn -ml-5 bg-transparent shadow-none border-0 text-2xl font-bold gap-0 text-white">
+                        
+                    <img src={"./Alloy-Wheel.png"} className='w-[30px] mr-1' alt="" />
                     Rent<span className='text-primary'>Wheels</span>
                     </NavLink>
                     <p>RentWheels is a car rental provider. Users can browse available cars, view details, and book rentals for specific dates. Car providers can list vehicles, manage bookings, and update availability.</p>
