@@ -15,7 +15,7 @@ const SingleCarCard = ({ car }) => {
                 duration: 0.5,
                 ease: "easeOut",
             }}
-            viewport={{ once: true, amount: 0.3 }}
+            // viewport={{ once: true, amount: 0.3 }}
 
 
             className="relative w-full max-w-3xl mx-auto backdrop-blur-lg border bg-white border-white/20 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group cursor-pointer">

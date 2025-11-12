@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Star } from 'lucide-react';
 import "./Testimonial.css"
 import { motion } from "motion/react"
+import { useEffect } from 'react';
 
 const NextArrow = ({ onClick }) => (
     <button
@@ -28,57 +29,39 @@ const PrevArrow = ({ onClick }) => (
 
 const Testimonial = () => {
     const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
         slidesToShow: 2,
         slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
+        dots: false,
+        infinite: true,
         autoplay: true,
         autoplaySpeed: 3000,
-        pauseOnHover: true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
         responsive: [
             {
-                breakpoint: 1024, // up to 1024px
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    dots: true,
-                },
+                breakpoint: 1024,
+                settings: { slidesToShow: 2 },
             },
             {
-                breakpoint: 768, // up to 768px
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
+                breakpoint: 768,
+                settings: { slidesToShow: 1 },
             },
             {
-                breakpoint: 480, // up to 480px
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
+                breakpoint: 480,
+                settings: { slidesToShow: 1 },
             },
         ],
     };
 
 
 
-
-
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.5,
-                ease: "easeOut",
-            }}
-            viewport={{ once: true, amount: 0.3 }}
-
-            className="mt-20 px-2 overflow-hidden">
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="mt-20 px-2 overflow-hidden"
+        >
             <h2 className='text-2xl  font-bold text-left mb-10 flex justify-center items-center gap-2 '>Customer <span className='text-primary'>Testimonials</span></h2>
             <div className="relative w-full max-w-6xl mx-auto">
                 <Slider {...settings}>
@@ -131,8 +114,6 @@ const Testimonial = () => {
                         </div>
                     </div>
 
-
-
                     <div className=" flex justify-center rounded-xl bg-white shadow-md items-center h-[400px] w-[500px] overflow-hidden">
                         <div className="">
                             <div className="p-4 flex text-left  items-start gap-3">
@@ -158,8 +139,6 @@ const Testimonial = () => {
                             </div>
                         </div>
                     </div>
-
-
                 </Slider>
             </div>
         </motion.div>
@@ -167,3 +146,11 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+
+
+
+
+
+
+

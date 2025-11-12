@@ -135,8 +135,8 @@ const Register = () => {
                 duration: 0.5,
                 ease: "easeOut",
             }}
-            viewport={{ once: true, amount: 0.3 }}
-            className='w-full flex justify-center items-center mt-10 h-[80vh]'>
+            // viewport={{ once: true, amount: 0.3 }}
+            className='w-full flex justify-center items-center mt-10 my-20 lg:h-[80vh]'>
             <ToastContainer />
             <title>Register Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -145,9 +145,6 @@ const Register = () => {
                 <div className="card-body">
                     <form onSubmit={emailUserCreateHandler}>
                         <fieldset className="fieldset">
-
-
-
 
                             <div className={`'text-left flex flex-col gap-2' ${progress ? "visible" : "hidden"}`}>
                                 <div className='flex gap-5 text-left'>

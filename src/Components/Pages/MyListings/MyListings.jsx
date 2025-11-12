@@ -3,6 +3,9 @@ import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import SingleListing from './SingleListing';
 import { Car, CircleChevronLeft } from 'lucide-react';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
+
+import Swal from 'sweetalert2'
 
 const MyListings = () => {
     const { userInfo } = use(AuthContext)
@@ -56,7 +59,11 @@ const MyListings = () => {
                             }
                         </tbody>
                     </table>
-                </div>
+                </div> 
+
+
+
+
             </div>
         </div>
     );

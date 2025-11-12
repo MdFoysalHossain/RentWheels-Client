@@ -94,7 +94,7 @@ const Login = () => {
             }}
             viewport={{ once: true, amount: 0.3 }}
 
-            className='w-full flex justify-center items-center h-[80vh]'>
+            className='w-full flex justify-center items-center mt-10 my-20 lg:h-[80vh]'>
             <ToastContainer />
             <title>Login to Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

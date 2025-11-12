@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, NavLink, useLocation } from 'react-router';
 import { AuthContext } from '../../Contexts/Auth/AuthContext';
 import { useState } from 'react';
+import Logo from "../../../public/Alloy-Wheel.png";
 
 const Navbar = ({ carsData }) => {
     const { userInfo, userLogOut } = use(AuthContext)
@@ -70,7 +71,7 @@ const Navbar = ({ carsData }) => {
                     </ul>
                 </div>
                 <NavLink className="btn bg-transparent shadow-none border-0 text-2xl font-bold gap-0">
-                    <img src={"./Alloy-Wheel.png"} className='w-[30px] mr-1' alt="" />
+                    <img src={Logo} className='w-[30px] mr-1' alt="" />
                     Rent<span className='text-primary'>Wheels</span>
                 </NavLink>
             </div>

@@ -49,7 +49,7 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
                 duration: 0.35,
                 ease: "easeOut",
             }}
-            viewport={{ once: true, amount: 0.3 }}
+            // viewport={{ once: true, amount: 0.3 }}
         >
 
 

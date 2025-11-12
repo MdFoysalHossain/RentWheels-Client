@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import { MapPinned, PhoneCall, Mail, ReceiptText, Facebook, Instagram, X } from 'lucide-react';
+import Logo from "../../../public/Alloy-Wheel.png";
 
 const Footer = () => {
     return (
@@ -9,7 +10,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 px-10 justify-start lg:justify-items-center *:max-w-[350px] max-w-[1220px] mx-auto gap-10 py-10 text-white">
                 <div className="text-white text-left">
                     <NavLink className="btn -ml-5 bg-transparent shadow-none border-0 text-2xl font-bold gap-0 text-white">
-                        <img src={"./Alloy-Wheel.png"} className='w-[30px] mr-1' alt="" />
+                        <img src={Logo} className='w-[30px] mr-1' alt="" />
                         Rent<span className='text-primary'>Wheels</span>
                     </NavLink>
                     <p>RentWheels is a car rental provider. Users can browse available cars, view details, and book rentals for specific dates. Car providers can list vehicles, manage bookings, and update availability.</p>

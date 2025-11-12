@@ -42,7 +42,6 @@ const Banner = () => {
     };
 
 
-    const type1 = "Browse Cars";
 
     return (
         <div className="relative max-w-[1280px] mx-5 xl:mx-auto h-[500px] rounded-xl overflow-hidden mt-10">

@@ -9,12 +9,12 @@ const SingleCar = () => {
 
 
     if (allCars) {
-        console.log("All Data Entered", allCars)
+        // console.log("All Data Entered", allCars)
         const check = allCars.filter(item => item._id === id)
-        console.log("Check", check)
+        // console.log("Check", check)
 
         if (check.length !== 0) {
-            console.log("Found a Match", check)
+            // console.log("Found a Match", check)
             return (
                 <SingleCarDetails/>
             )

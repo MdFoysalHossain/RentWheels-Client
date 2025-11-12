@@ -7,13 +7,13 @@ const WhyUs = () => {
             <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>Why Rent With <span className='text-primary'>Us?</span></h2>
 
             <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 1, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                     duration: 0.5,
                     ease: "easeOut",
                 }} 
-                viewport={{ once: true, amount: 0.3 }}
+                // viewport={{ once: true, amount: 0.3 }}
                 
                 className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-5 gap-10">
                 <div className="card card-dash bg-base-100 w-full min-h-[150px] shadow-md">
