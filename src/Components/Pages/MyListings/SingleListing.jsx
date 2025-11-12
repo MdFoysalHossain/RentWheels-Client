@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Swal from 'sweetalert2'
 import { motion } from "motion/react"
 
+import { ToastContainer, toast } from 'react-toastify';
 
 const SingleListing = ({ listing, index, listings, setListings }) => {
     // console.log(listing)
@@ -48,10 +49,10 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
                 duration: 0.35,
                 ease: "easeOut",
             }}
-            viewport={{ once: true, amount: 0.3 }} 
-            >
+            viewport={{ once: true, amount: 0.3 }}
+        >
 
-            
+
             <th>{index + 1}</th>
             <th>{listing.carName}</th>
             <td>{listing.category}</td>

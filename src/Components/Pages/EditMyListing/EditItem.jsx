@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { useParams } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
 
 const EditItem = () => {
 
@@ -47,7 +48,19 @@ const EditItem = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(data => console.log("Post Was Updated", data))
+            .then(data => {
+                toast.success('Successfully Updated Your Listed Car', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#10b981",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                    },
+                });
+            })
 
         console.log(data)
     }
@@ -67,6 +80,7 @@ const EditItem = () => {
 
         return (
             <div>
+                <ToastContainer />
                 <title>Edit Your Listing - RentWheels</title>
                 <div className="min-h-screen text-left flex items-center justify-center p-6">
                     <div className="card w-full max-w-2xl shadow-xl bg-base-100">

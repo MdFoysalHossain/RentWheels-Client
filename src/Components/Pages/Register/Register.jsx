@@ -4,11 +4,12 @@ import { EyeOff, Eye } from 'lucide-react';
 import AuthProvider from '../../../Contexts/Auth/AuthProvider';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { motion } from "motion/react"
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Register = () => {
 
-    const { createEmailUser, updateUserInfo, googleSignIn } = use(AuthContext)
+    const { userInfo, createEmailUser, updateUserInfo, googleSignIn } = use(AuthContext)
     const navigate = useNavigate();
 
     let [eye, setEye] = useState(true)
@@ -17,6 +18,10 @@ const Register = () => {
     let [checkUpper, setUpper] = useState(false)
     let [checkLower, setLower] = useState(false)
     let [checkLength, setLength] = useState(false)
+
+    if (userInfo) {
+        return navigate("/");
+    }
 
     const checkEye = () => {
         setEye(!eye)
@@ -32,10 +37,24 @@ const Register = () => {
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(res => {
-                console.log("Google Login Successfully", res);
+                // console.log("Google Login Successfully", res);
                 navigate("/");
             })
-            .catch(error => console.log("Google Login Error", error))
+            .catch(error => {
+                // console.log("Google Login Error", error)
+                toast.error('Somewhing Went Wrong, Please Try Again!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#F54927",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                        textAlign: "left"
+                    },
+                });
+            })
     }
 
 
@@ -47,27 +66,53 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const confirmPassword = e.target.confirmPassword.value;
-        console.log(email, password, confirmPassword)
+        // console.log(email, password, confirmPassword)
 
         if (password === confirmPassword) {
             createEmailUser(email, password)
                 .then(res => {
-                    console.log("Result", res)
+                    // console.log("Result", res)
 
                     const data = {
                         displayName: `${fName + " " + sName}`,
                         photoURL: imgUrl
                     }
 
+                    toast('Account Registered Successful!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        style: {
+                            background: "#10b981",
+                            color: "#fff",
+                            fontWeight: "600",
+                            borderRadius: "10px",
+                            padding: "12px 18px",
+                        },
+                    });
+
                     updateUserInfo(data)
                         .then(res => {
-                            console.log("Profile Data Updated", res)
+                            // console.log("Profile Data Updated", res)
                             navigate("/");
                         }).catch(error => {
-                            console.log("Error while Updating", error)
+                            // console.log("Error while Updating", error)
                         })
                 })
-                .catch(error => console.log("Register Eror", error))
+                .catch(error => {
+                    // console.log("Register Eror", error)
+                    toast.error('Somewhing Went Wrong, Please Try Again!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        style: {
+                            background: "#fff",
+                            color: "#F54927",
+                            fontWeight: "600",
+                            borderRadius: "10px",
+                            padding: "12px 18px",
+                            textAlign: "left"
+                        },
+                    });
+                })
         }
 
     }
@@ -92,6 +137,7 @@ const Register = () => {
             }}
             viewport={{ once: true, amount: 0.3 }}
             className='w-full flex justify-center items-center mt-10 h-[80vh]'>
+            <ToastContainer />
             <title>Register Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Hello <span className='text-primary'>There!</span></p>

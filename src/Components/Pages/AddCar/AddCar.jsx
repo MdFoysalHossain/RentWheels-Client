@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { motion } from "motion/react"
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddCar = () => {
 
@@ -40,10 +41,26 @@ const AddCar = () => {
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
         })
-            .then(res => res.json())
-            .then(data => console.log("Post Was Created", data))
+            .then(res => {
+                res.json()
+            })
+            .then(data => {
+                console.log("This is added")
+                toast.success('Successfully Listed Your Car', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#10b981",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                    },
+                });
+                // console.log(data)
+            })
 
-        console.log(data)
+
 
     };
 
@@ -57,7 +74,8 @@ const AddCar = () => {
                 ease: "easeOut",
             }}
             viewport={{ once: true, amount: 0.3 }}
-            >
+        >
+            <ToastContainer />
             <title>Add Your Car - RentWheels</title>
             <div className="min-h-screen text-left flex items-center justify-center p-6">
                 <div className="card w-full max-w-2xl shadow-xl bg-base-100">

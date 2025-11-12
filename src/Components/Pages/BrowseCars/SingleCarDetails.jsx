@@ -1,10 +1,9 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { useLocation, useParams } from 'react-router';
-
 import { motion } from "motion/react"
-
 import { MapPin, CarFront, Wallet, BookmarkCheck, BookmarkX, IdCardLanyard, AtSign } from 'lucide-react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const SingleCarDetails = () => {
 
@@ -36,6 +35,17 @@ const SingleCarDetails = () => {
             .then(resData => {
                 console.log("After Update", resData)
                 setData(prev => ({ ...prev, status: "Unavaliable" }))
+                toast.success('Successfully Added To Your Booking', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#10b981",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                    },
+                });
             })
     }
 
@@ -50,7 +60,7 @@ const SingleCarDetails = () => {
                 }}
                 viewport={{ once: true, amount: 0.3 }}
             >
-
+                <ToastContainer />
                 <div className="mt-10">
                     <div className="flex gap-10 justify-center">
                         <div className=" w-[600px] text-left">

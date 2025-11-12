@@ -3,19 +3,39 @@ import { Link, useNavigate } from 'react-router';
 import { EyeOff, Eye } from 'lucide-react';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { motion } from "motion/react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
     const { userInfo, userEmailLogin, googleSignIn } = use(AuthContext)
     const navigate = useNavigate();
-    
+
+    if(userInfo){
+        return navigate("/");
+    }
+
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(res => {
                 console.log("Google Login Successfully", res);
                 navigate("/");
             })
-            .catch(error => console.log("Google Login Error", error));
+            .catch(error => {
+                toast.error('Somewhing Went Wrong, Please Try Again!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#F54927",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                        textAlign: "left"
+                    },
+                });
+                // console.log("Google Login Error", error)
+            });
     };
 
 
@@ -32,10 +52,36 @@ const Login = () => {
 
         userEmailLogin(email, password)
             .then(res => {
-                console.log("User Logged In:", res)
+                toast('Login Successful!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#10b981",
+                        color: "#fff",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                    },
+                    icon: '🎉',
+                });
+
                 navigate("/");
             })
-            .catch(error => console.log("Login Error", error))
+            .catch(error => {
+                toast.error('Somewhing Went Wrong, Please Try Again!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    style: {
+                        background: "#fff",
+                        color: "#F54927",
+                        fontWeight: "600",
+                        borderRadius: "10px",
+                        padding: "12px 18px",
+                        textAlign: "left"
+                    },
+                });
+                // console.log("Login Error", error)
+            })
     }
 
     return (
@@ -46,9 +92,10 @@ const Login = () => {
                 duration: 0.5,
                 ease: "easeOut",
             }}
-            viewport={{ once: true, amount: 0.3 }} 
-            
+            viewport={{ once: true, amount: 0.3 }}
+
             className='w-full flex justify-center items-center h-[80vh]'>
+            <ToastContainer />
             <title>Login to Account - RentWheels</title>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <p className='font-semibold text-3xl mt-3'>Welcome <span className='text-primary'>Back!</span></p>
@@ -59,7 +106,7 @@ const Login = () => {
                             <label className="label">Email<span className='text-primary'>*</span></label>
                             <input name='email' type="email" className="input" placeholder="Email" required />
                             <label className="label">Password<span className='text-primary'>*</span></label>
-                            <input name='password' type={eye? "password": "text"} className="input" placeholder="Password" required />
+                            <input name='password' type={eye ? "password" : "text"} className="input" placeholder="Password" required />
                             {
                                 eye ? <EyeOff onClick={checkEye} className='absolute cursor-pointer bottom-[200px] right-[45px] bg-gray-100 p-1 rounded' size={30} /> :
                                     <Eye onClick={checkEye} className='absolute cursor-pointer bottom-[200px] right-[45px] bg-gray-100 p-1 rounded' size={30} />
