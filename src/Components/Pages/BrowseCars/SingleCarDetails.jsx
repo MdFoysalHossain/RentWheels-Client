@@ -61,7 +61,7 @@ const SingleCarDetails = () => {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <ToastContainer />
-                <div className="mt-10">
+                <div className="mt-10 max-w-[1280px] mx-auto">
                     <div className="flex gap-10 justify-center">
                         <div className=" w-[600px] text-left">
                             <div className=" w-full rounded-xl bg-green-300 overflow-hidden">

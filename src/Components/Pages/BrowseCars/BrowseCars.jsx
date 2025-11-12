@@ -7,7 +7,7 @@ const BrowseCars = () => {
     const allCars = useLoaderData()
 
     return (
-        <div className='mt-10'>
+        <div className='mt-10 max-w-[1280px] mx-auto'>
             <title>Browse Cars - RentWheels</title>
             <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>All Listed Cars <Car className='text-primary ' size={30}/></h2>
             <div className="grid grid-cols-2 gap-10">

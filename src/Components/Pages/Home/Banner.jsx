@@ -45,7 +45,7 @@ const Banner = () => {
     const type1 = "Browse Cars";
 
     return (
-        <div className="relative h-[500px] rounded-xl overflow-hidden mt-10">
+        <div className="relative max-w-[1280px] mx-auto h-[500px] rounded-xl overflow-hidden mt-10">
             <Slider {...settings}>
                 <div className="relative flex justify-center items-center h-[500px]  overflow-hidden">
                     <img src={BannerImg1} alt="" className="object-cover w-full h-full" />

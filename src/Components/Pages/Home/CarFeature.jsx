@@ -18,11 +18,11 @@ const CarFeature = () => {
     }, [])
 
     if (!carData) {
-        return <div className='w-full h-[50vh] flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>
+        return <div className='w-full h-[50vh] max-w-[1280px] mx-auto flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>
     }
 
     return (
-        <div>
+        <div className='max-w-[1280px] mx-auto'>
 
             <h2 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 mt-20'>Latest Listed Cars <Car className='text-primary ' size={30} /></h2>
             <div className='grid grid-cols-2 gap-10 mt-10'>

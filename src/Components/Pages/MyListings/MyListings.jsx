@@ -33,7 +33,7 @@ const MyListings = () => {
     }
 
     return (
-        <div className=" mt-10">
+        <div className=" mt-10 max-w-[1280px] mx-auto">
             <h1 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>My Listings <Car className='text-primary ' size={30} /></h1>
             <div className='bg-white mt-10'>
                 <title>My Listings - RentWheels</title>

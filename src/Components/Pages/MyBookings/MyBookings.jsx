@@ -35,7 +35,7 @@ const MyBookings = () => {
     }
 
     return (
-        <div className=" mt-10">
+        <div className=" mt-10 max-w-[1280px] mx-auto">
             <title>My Bookings - RentWheels</title>
             <h1 className='text-2xl font-bold text-left mb-10 flex justify-center items-center gap-2 '>My Bookings <Car className='text-primary ' size={30} /></h1>
             <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
