@@ -10,8 +10,6 @@ const Navbar = ({ carsData }) => {
 
     const isHome = location.pathname === "/";
 
-    console.log(userInfo)
-
 
 
 
@@ -19,6 +17,8 @@ const Navbar = ({ carsData }) => {
 
     const [searchValue, setSearchValue] = useState("");
     const [filteredList, setFilteredList] = useState([]);
+
+    console.log(userInfo)
 
     const handleSearchChange = (e) => {
         const value = e.target.value;

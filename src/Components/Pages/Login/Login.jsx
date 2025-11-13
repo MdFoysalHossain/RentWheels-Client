@@ -5,20 +5,31 @@ import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { motion } from "motion/react"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 
 const Login = () => {
-
-    const { userInfo, userEmailLogin, googleSignIn } = use(AuthContext)
+    let [eye, setEye] = useState(true)
+    const { userInfo, userEmailLogin, googleSignIn, dataLoading } = use(AuthContext)
     const navigate = useNavigate();
 
-    if(userInfo){
-        return navigate("/");
-    }
+    // if (dataLoading === false) {
+    //     if (userInfo) {
+
+    //         return navigate("/");
+    //     }
+    // }
+
+    useEffect(() => {
+        if (!dataLoading && userInfo) {
+            // console.log("UseEffect:", userInfo)
+            navigate("/");
+        }
+    }, [dataLoading, userInfo, navigate]);
 
     const handleGoogleLogin = () => {
         googleSignIn()
             .then(res => {
-                console.log("Google Login Successfully", res);
+                // console.log("Google Login Successfully", res);
                 navigate("/");
             })
             .catch(error => {
@@ -33,13 +44,13 @@ const Login = () => {
                         padding: "12px 18px",
                         textAlign: "left"
                     },
+                
                 });
                 // console.log("Google Login Error", error)
             });
     };
 
 
-    let [eye, setEye] = useState(true)
 
     const checkEye = () => {
         setEye(!eye)
@@ -80,7 +91,6 @@ const Login = () => {
                         textAlign: "left"
                     },
                 });
-                // console.log("Login Error", error)
             })
     }
 
@@ -132,3 +142,9 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+

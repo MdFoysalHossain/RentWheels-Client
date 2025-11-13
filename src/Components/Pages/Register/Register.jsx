@@ -5,11 +5,12 @@ import AuthProvider from '../../../Contexts/Auth/AuthProvider';
 import { AuthContext } from '../../../Contexts/Auth/AuthContext';
 import { motion } from "motion/react"
 import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 
 const Register = () => {
 
-    const { userInfo, createEmailUser, updateUserInfo, googleSignIn } = use(AuthContext)
+    const { userInfo, createEmailUser, updateUserInfo, googleSignIn, dataLoading } = use(AuthContext)
     const navigate = useNavigate();
 
     let [eye, setEye] = useState(true)
@@ -19,9 +20,16 @@ const Register = () => {
     let [checkLower, setLower] = useState(false)
     let [checkLength, setLength] = useState(false)
 
-    if (userInfo) {
-        return navigate("/");
-    }
+    // if (userInfo) {
+    //     return navigate("/");
+    // }
+
+    useEffect(() => {
+        if (!dataLoading && userInfo) {
+            // console.log("UseEffect:", userInfo)
+            navigate("/");
+        }
+    }, [dataLoading, userInfo, navigate]);
 
     const checkEye = () => {
         setEye(!eye)

@@ -35,10 +35,10 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const checkAuth = () => {
+        const checkAuth = 
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    console.log("Auth Changed:", user)
+                    // console.log("Auth Changed:", user)
                     setUserInfo(user)
                     setDataLoading(false)
                 }else{
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
                     setUserInfo(null)
                 }
             })
-        }
+        
 
         return (() => checkAuth())
     }, [])

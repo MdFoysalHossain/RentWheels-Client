@@ -29,7 +29,7 @@ const PrevArrow = ({ onClick }) => (
 
 const Testimonial = () => {
     const settings = {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         dots: false,
         infinite: true,
@@ -38,6 +38,14 @@ const Testimonial = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
+            {
+                breakpoint: 3080,
+                settings: { slidesToShow: 2 },
+            },
+            {
+                breakpoint: 1920,
+                settings: { slidesToShow: 2 },
+            },
             {
                 breakpoint: 1024,
                 settings: { slidesToShow: 2 },
