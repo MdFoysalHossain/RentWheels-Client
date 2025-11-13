@@ -4,12 +4,16 @@ import CarFeature from './CarFeature';
 import WhyUs from './WhyUs';
 import Steps from './Steps';
 import Testimonial from './Testimonial';
+import { use } from 'react';
+
+const promisedLatest = fetch("https://rent-wheels-server-lqfd.vercel.app/NewestCars/").then(res => res.json())
 
 const Home = () => {
+    const latestData = use(promisedLatest)
     return (
         <div className='max-w-[1280px] mx-auto'>
             <Banner/>
-            <CarFeature/>
+            <CarFeature latestData={latestData}/>
             <WhyUs/>
             <Steps/>
             <Testimonial/>

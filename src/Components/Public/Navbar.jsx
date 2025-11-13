@@ -10,6 +10,8 @@ const Navbar = ({ carsData }) => {
 
     const isHome = location.pathname === "/";
 
+    console.log(userInfo)
+
 
 
 
