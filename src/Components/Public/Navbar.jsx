@@ -18,7 +18,7 @@ const Navbar = ({ carsData }) => {
     const [searchValue, setSearchValue] = useState("");
     const [filteredList, setFilteredList] = useState([]);
 
-    console.log(userInfo)
+    // console.log(userInfo)
 
     const handleSearchChange = (e) => {
         const value = e.target.value;
