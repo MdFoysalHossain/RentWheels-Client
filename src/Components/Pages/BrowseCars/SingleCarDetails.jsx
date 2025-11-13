@@ -102,7 +102,7 @@ const SingleCarDetails = () => {
                 <div className="mt-10 p-5 xl:p-0  max-w-[340px]   lg:max-w-[1280px] mx-auto">
                     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 justify-center">
                         <div className="w-[340px] sm:w-[600px] md:w-[800px] text-left">
-                            <div className="w-[340px] sm:w-[600px] md:w-full rounded-xl text-center bg-green-300 overflow-hidden">
+                            <div className="w-[340px] sm:w-[600px] md:w-full rounded-xl text-center overflow-hidden">
                                 <img className='h-full ' src={data.imageUrl} alt="" />
                             </div>
 
