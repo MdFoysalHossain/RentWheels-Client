@@ -7,10 +7,10 @@ const NotFoundListing = () => {
             <title>Page Not Found - RentWheels</title>
             <div className="">
                 <h2 className='text-[150px] font-bold leading-[150px] relative'>
-                    <span className='text-8xl left-[50px] -top-2.5 absolute -rotate-3'>PAGE</span>
-                    <span className='text-8xl left-80 -top-20 -rotate-10 absolute'>NOT</span>
-                    <span className='text-8xl left-[550px] top-[-55px] rotate-14 text-primary absolute'>FOUND</span>
-                    <img src={Error404Img} alt="" className=' w-[900px]' />
+                    <span className='text-3xl lg:text-8xl left-[15px]  lg:left-[50px] -top-1.5 lg:-top-2.5 absolute -rotate-3'>PAGE</span>
+                    <span className='text-3xl lg:text-8xl left-30 lg:left-80 -top-8 lg:-top-20 -rotate-10 absolute'>NOT</span>
+                    <span className='text-3xl lg:text-8xl left-50 lg:left-[550px] -top-5 lg:top-[-55px] rotate-14 text-primary absolute'>FOUND</span>
+                    <img src={Error404Img} alt="" className='w-[300px] lg:w-[900px]' />
                 </h2>
             </div>
         </div>
