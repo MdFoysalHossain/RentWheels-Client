@@ -16,7 +16,7 @@ const EditItem = () => {
                 .then(info => setDetails(info))
         }
 
-        return (() => getData())
+        getData()
     }, [id])
 
 

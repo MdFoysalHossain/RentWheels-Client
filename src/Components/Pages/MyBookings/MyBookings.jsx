@@ -10,6 +10,16 @@ const MyBookings = () => {
     const { userInfo } = use(AuthContext)
     const [bookings, setBookings] = useState(null)
 
+    // useEffect(() => {
+    //     const getData = () => {
+    //         fetch(`https://rent-wheels-server-lqfd.vercel.app/MyBookings?email=${userInfo.email}`)
+    //             .then(res => res.json())
+    //             .then(data => setBookings(data))
+    //     }
+
+    //     return (() => getData());
+    // }, [userInfo.email])
+
     useEffect(() => {
         const getData = () => {
             fetch(`https://rent-wheels-server-lqfd.vercel.app/MyBookings?email=${userInfo.email}`)
@@ -17,8 +27,9 @@ const MyBookings = () => {
                 .then(data => setBookings(data))
         }
 
-        return (() => getData());
+        getData();
     }, [userInfo.email])
+    
 
     if (!bookings) {
         return <div className='w-full h-[50vh] flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>

@@ -18,8 +18,8 @@ const MyListings = () => {
                 .then(info => setListings(info))
         }
 
-        return (() => getData())
-    }, [])
+        getData()
+    }, [userInfo.email])
 
     if (!listings) {
         return <div className='w-full h-[50vh] flex justify-center items-center'><span className="loading loading-infinity loading-xl"></span></div>

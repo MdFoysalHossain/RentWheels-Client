@@ -12,15 +12,49 @@ const SingleCarDetails = () => {
     const { userInfo } = use(AuthContext)
 
 
+    // useEffect(() => {
+    //     const getData = () => {
+    //         fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`)
+    //             .then(res => res.json())
+    //             .then(info => {
+    //                 setData(info)
+    //                 console.log("Got Data:", info)
+    //             })
+    //     }
+
+    //     return (() => getData())
+    // }, [id])
+
+
+    // useEffect(() => {
+    //     const getData = 
+    //         fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`)
+    //             .then(res => res.json())
+    //             .then(info => {
+    //                 setData(info)
+    //                 console.log("Got Data:", info)
+    //             })
+
+
+    //     return (() => getData())
+    // }, [id])
+
+
     useEffect(() => {
         const getData = () => {
             fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`)
                 .then(res => res.json())
-                .then(info => setData(info))
-        }
+                .then(info => {
+                    setData(info);
+                    console.log("Got Data:", info);
+                })
+                .catch(err => console.error("Fetch error:", err));
+        };
 
-        return (() => getData())
-    }, [id])
+        getData(); // call it here
+
+    }, [id]);
+
 
 
     const updateData = () => {
@@ -61,6 +95,10 @@ const SingleCarDetails = () => {
             // viewport={{ once: true, amount: 0.3 }}
             >
                 <ToastContainer />
+
+                {
+                    console.log(data)
+                }
                 <div className="mt-10 p-5 xl:p-0  max-w-[340px]   lg:max-w-[1280px] mx-auto">
                     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 justify-center">
                         <div className="w-[340px] sm:w-[600px] md:w-[800px] text-left">
@@ -91,7 +129,7 @@ const SingleCarDetails = () => {
                                     <h2 className='text-lg underline underline-offset-6 decoration-primary font-semibold mb-2'>Details</h2>
                                     <div className="flex flex-col sm:flex-row lg:flex-col gap-15 sm:gap-5 md:gap-13 items-start">
                                         <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-                                        
+
                                             <table className="table">
                                                 <tbody className=''>
                                                     <tr className="h-full w-[500px] md:w-[400px] lg:w-[500px]">
