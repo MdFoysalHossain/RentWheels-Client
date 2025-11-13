@@ -11,7 +11,7 @@ const EditItem = () => {
 
     useEffect(() => {
         const getData = () => {
-            fetch(`http://localhost:3000/BrowseCars/${id}`)
+            fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`)
                 .then(res => res.json())
                 .then(info => setDetails(info))
         }
@@ -42,7 +42,7 @@ const EditItem = () => {
             name: name,
         }
 
-        fetch(`http://localhost:3000/MyListingsUpdate/${id}`, {
+        fetch(`https://rent-wheels-server-lqfd.vercel.app/MyListingsUpdate/${id}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

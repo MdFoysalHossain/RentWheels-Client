@@ -10,7 +10,7 @@ const EditMyListing = () => {
 
     // useEffect(() => {
     //     const getData = () => {
-    //         fetch(`http://localhost:3000/BrowseCars/}`)
+    //         fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/}`)
     //             .then(res => res.json())
     //             .then(info => {
     //                 setAllData(info)

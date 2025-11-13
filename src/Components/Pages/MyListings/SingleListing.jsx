@@ -20,7 +20,7 @@ const SingleListing = ({ listing, index, listings, setListings }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/MyListings/${listing._id}`, {
+                fetch(`https://rent-wheels-server-lqfd.vercel.app/MyListings/${listing._id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

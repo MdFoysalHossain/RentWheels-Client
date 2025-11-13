@@ -14,7 +14,7 @@ const SingleCarDetails = () => {
 
     useEffect(() => {
         const getData = () => {
-            fetch(`http://localhost:3000/BrowseCars/${id}`)
+            fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`)
                 .then(res => res.json())
                 .then(info => setData(info))
         }
@@ -26,7 +26,7 @@ const SingleCarDetails = () => {
     const updateData = () => {
 
 
-        fetch(`http://localhost:3000/BrowseCars/${id}`, {
+        fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/${id}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status: "Unavaliable", bookedBy: userInfo.email })

@@ -19,7 +19,7 @@ const SingleBookings = ({ book, index, bookings, setBookings }) => {
             confirmButtonText: "Yes, Remove It!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/MyBookings/${id}`, {
+                fetch(`https://rent-wheels-server-lqfd.vercel.app/MyBookings/${id}`, {
                     method: "PATCH",
                     headers: { "content-type": "application/json" }
                 })

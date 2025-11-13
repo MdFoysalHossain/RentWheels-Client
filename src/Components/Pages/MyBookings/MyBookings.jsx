@@ -12,7 +12,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         const getData = () => {
-            fetch(`http://localhost:3000/MyBookings?email=${userInfo.email}`)
+            fetch(`https://rent-wheels-server-lqfd.vercel.app/MyBookings?email=${userInfo.email}`)
                 .then(res => res.json())
                 .then(data => setBookings(data))
         }

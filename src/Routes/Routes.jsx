@@ -18,7 +18,7 @@ import MyBookings from "../Components/Pages/MyBookings/MyBookings";
 export const router = createBrowserRouter([
     {
         path: "/",
-        loader: () => fetch("http://localhost:3000/BrowseCars").then(res => res.json()),
+        loader: () => fetch("https://rent-wheels-server-lqfd.vercel.app/BrowseCars").then(res => res.json()),
         element:
             <AuthProvider>
                 <Root></Root>
@@ -40,11 +40,11 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddCar /></PrivateRoute>
             }, {
                 path: "/BrowseCars",
-                loader: () => fetch("http://localhost:3000/BrowseCars").then(res => res.json()),
+                loader: () => fetch("https://rent-wheels-server-lqfd.vercel.app/BrowseCars").then(res => res.json()),
                 element: <BrowseCars />
             }, {
                 path: "/BrowseCars/:id",
-                loader: () => fetch(`http://localhost:3000/BrowseCars/`).then(res => res.json()),
+                loader: () => fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/`).then(res => res.json()),
                 element: <PrivateRoute><SingleCar /></PrivateRoute>
             }, {
                 path: "/MyListings",
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><MyBookings /></PrivateRoute>
             }, {
                 path: "/EditMyListing/:id",
-                loader: () => fetch(`http://localhost:3000/BrowseCars/`).then(res => res.json()),
+                loader: () => fetch(`https://rent-wheels-server-lqfd.vercel.app/BrowseCars/`).then(res => res.json()),
                 element: <PrivateRoute><EditMyListing /></PrivateRoute>
             }
         ]

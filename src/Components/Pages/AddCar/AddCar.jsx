@@ -36,7 +36,7 @@ const AddCar = () => {
         };
 
 
-        fetch("http://localhost:3000/AddCar", {
+        fetch("https://rent-wheels-server-lqfd.vercel.app/AddCar", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)

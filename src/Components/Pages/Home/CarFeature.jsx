@@ -10,7 +10,7 @@ const CarFeature = () => {
 
     useEffect(() => {
         const allCars = () => {
-            fetch(`http://localhost:3000/NewestCars/`)
+            fetch(`https://rent-wheels-server-lqfd.vercel.app/NewestCars/`)
                 .then(res => res.json())
                 .then(data => setCarData(data))
         }
