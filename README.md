@@ -9,12 +9,12 @@ Live Link: https://tranquil-malabi-9e0ccf.netlify.app/
 5. Update and Delete their Listed cars from the "/MyListings" page.
 6. Account creation or Login is required to View Details of each post and functions.
 
-# NPM Package Used
-Firebase, Motion, React, React-Router, Tailwind, Slick-Carousel, React-Toastify, MongoDB, etc
-
 # How to Run The Project.
 - Download both front-end and backend.
 - Install all the packages wth "npm i" after opening the folder in cmd/terminal.
 - Set the variables for Firebase and MongoDB both in Front-end and Back-end.
 - Run the Front-end with "npm run dev".
 - Run the Back-end with "node index.js" or if nodemon is installed, "nodemon index.js".
+
+# NPM Package Used
+Firebase, Motion, React, React-Router, Tailwind, Slick-Carousel, React-Toastify, MongoDB, etc
